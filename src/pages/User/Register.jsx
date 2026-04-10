@@ -61,7 +61,7 @@ const Register = () => {
           </div>
           <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>Register</button>
         </form>
-        <p style={{ textAlign: 'center', marginTop: '1.5rem', color: 'var(--text-muted)' }}>
+        <p style={{ textAlign: 'center', marginTop: '1.5rem', color: '#64748b' }}>
           Already have an account? <Link to="/login" style={{ color: 'var(--primary)' }}>Login</Link>
         </p>
       </div>

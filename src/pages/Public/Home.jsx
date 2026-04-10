@@ -6,12 +6,12 @@ const Home = () => {
   return (
     <div className="home-page">
       {}
-      <section style={{ padding: '6rem 0', textAlign: 'center', backgroundColor: 'var(--surface-light)' }}>
+      <section style={{ padding: '6rem 0', textAlign: 'center', backgroundColor: '#f1f5f9' }}>
         <div className="container">
           <h1 style={{ fontSize: '3.5rem', fontWeight: 800, marginBottom: '1.5rem', lineHeight: 1.2 }}>
-            Building the <span style={{ color: 'var(--primary)' }}>Digital Future</span>
+            Building the <span style={{ color: '#6366F1' }}>Digital Future</span>
           </h1>
-          <p style={{ fontSize: '1.25rem', color: 'var(--text-muted)', maxWidth: '600px', margin: '0 auto 2.5rem' }}>
+          <p style={{ fontSize: '1.25rem', color: '#64748b', maxWidth: '600px', margin: '0 auto 2.5rem' }}>
            Donec sollicitudin molestie malesuada. Curabitur arcu erat, accumsan id imperdiet et.
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
@@ -32,19 +32,19 @@ const Home = () => {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
             
             <div className="card" style={{ textAlign: 'center' }}>
-              <div style={{ width: '60px', height: '60px', backgroundColor: 'var(--background)', color: 'var(--primary)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem', border: '1px solid var(--border)' }}>
+              <div style={{ width: '60px', height: '60px', backgroundColor: 'var(--background)', color: '#6366F1', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem', border: '1px solid var(--border)' }}>
                 <Code size={30} />
               </div>
               <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Lorem One</h3>
-              <p style={{ color: 'var(--text-muted)' }}>Sed porttitor lectus nibh. Curabitur aliquet quam id dui posuere blandit.</p>
+              <p style={{ color: '#64748b' }}>Sed porttitor lectus nibh. Curabitur aliquet quam id dui posuere blandit.</p>
             </div>
 
             <div className="card" style={{ textAlign: 'center' }}>
-              <div style={{ width: '60px', height: '60px', backgroundColor: 'var(--background)', color: 'var(--secondary)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem', border: '1px solid var(--border)' }}>
+              <div style={{ width: '60px', height: '60px', backgroundColor: '#ffffff', color: '#10b981', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem', border: '1px solid #e2e8f0' }}>
                 <Layout size={30} />
               </div>
               <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Lorem One</h3>
-              <p style={{ color: 'var(--text-muted)' }}>Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.</p>
+              <p style={{ color: '#64748b' }}>Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.</p>
             </div>
 
             <div className="card" style={{ textAlign: 'center' }}>
@@ -52,7 +52,7 @@ const Home = () => {
                 <Shield size={30} />
               </div>
               <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Lorem One</h3>
-              <p style={{ color: 'var(--text-muted)' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor lectus nibh.</p>
+              <p style={{ color: '#64748b' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor lectus nibh.</p>
             </div>
 
           </div>

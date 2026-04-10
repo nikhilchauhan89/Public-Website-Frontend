@@ -46,9 +46,9 @@ const IdeaDiscussion = () => {
   };
 
   const getStatusColor = (status) => {
-    if (status === 'approved') return 'var(--success)';
-    if (status === 'rejected') return 'var(--error)';
-    return 'var(--primary)';
+    if (status === 'approved') return '#22C55E';
+    if (status === 'rejected') return '#EF4444';
+    return '#6366F1';
   };
 
   return (
@@ -76,13 +76,13 @@ const IdeaDiscussion = () => {
         <div>
           <div style={{ display: 'flex', gap: '1rem', borderBottom: '1px solid var(--border)', marginBottom: '2rem' }}>
             <button 
-              style={{ background: 'none', border: 'none', color: activeTab === 'all' ? 'var(--primary)' : 'var(--text-muted)', borderBottom: activeTab === 'all' ? '2px solid var(--primary)' : 'none', padding: '0.5rem 1rem', cursor: 'pointer', fontWeight: 600 }}
+              style={{ background: 'none', border: 'none', color: activeTab === 'all' ? 'var(--primary)' : '#64748b', borderBottom: activeTab === 'all' ? '2px solid var(--primary)' : 'none', padding: '0.5rem 1rem', cursor: 'pointer', fontWeight: 600 }}
               onClick={() => setActiveTab('all')}
             >
               All Ideas
             </button>
             <button 
-              style={{ background: 'none', border: 'none', color: activeTab === 'my' ? 'var(--primary)' : 'var(--text-muted)', borderBottom: activeTab === 'my' ? '2px solid var(--primary)' : 'none', padding: '0.5rem 1rem', cursor: 'pointer', fontWeight: 600 }}
+              style={{ background: 'none', border: 'none', color: activeTab === 'my' ? 'var(--primary)' : '#64748b', borderBottom: activeTab === 'my' ? '2px solid var(--primary)' : 'none', padding: '0.5rem 1rem', cursor: 'pointer', fontWeight: 600 }}
               onClick={() => setActiveTab('my')}
             >
               My Submissions
@@ -98,15 +98,15 @@ const IdeaDiscussion = () => {
                     {idea.status}
                   </span>
                 </div>
-                <p style={{ color: 'var(--text-muted)', marginBottom: '1rem' }}>{idea.description}</p>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                <p style={{ color: '#64748b', marginBottom: '1rem' }}>{idea.description}</p>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', color: '#64748b' }}>
                   <span>By {idea.userId?.name || 'You'}</span>
                   <span>{new Date(idea.createdAt).toLocaleDateString()}</span>
                 </div>
               </div>
             ))}
             {(activeTab === 'all' ? ideas : myIdeas).length === 0 && (
-              <p style={{ color: 'var(--text-muted)', textAlign: 'center' }}>No ideas found.</p>
+              <p style={{ color: '#64748b', textAlign: 'center' }}>No ideas found.</p>
             )}
           </div>
         </div>

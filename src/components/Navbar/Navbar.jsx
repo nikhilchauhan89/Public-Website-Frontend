@@ -25,8 +25,8 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="container nav-content">
-        <Link to="/" className="nav-brand">
-          <span className="brand-accent">Ex</span>Company
+        <Link to="/" className="navlogo">
+          <span className="logoContent">Ex</span>Company
         </Link>
 
         {}
@@ -79,7 +79,7 @@ const Navbar = () => {
               ) : (
                 <Link to="/ideas" className="mobile-link" onClick={() => setIsOpen(false)}>My Panel</Link>
               )}
-              <button onClick={handleLogout} className="mobile-link text-left" style={{ border: 'none', background: 'transparent', width: '100%', fontSize: '1rem', color: 'var(--text)' }}>Logout</button>
+              <button onClick={handleLogout} className="mobile-link text-left" style={{ border: 'none', background: 'transparent', width: '100%', fontSize: '1rem', color: '#1e293b' }}>Logout</button>
             </>
           ) : (
             <>

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer style={{ backgroundColor: 'var(--surface-light)', padding: '3rem 0', marginTop: 'auto', borderTop: '1px solid var(--border)' }}>
+    <footer style={{ backgroundColor: '#f1f5f9', padding: '3rem 0', marginTop: 'auto', borderTop: '1px solid var(--border)' }}>
       <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem' }}>
         <div>
           <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '1rem' }}><span style={{ color: 'var(--primary)' }}>Ex</span>Company</h3>

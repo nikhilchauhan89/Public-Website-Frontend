@@ -51,7 +51,7 @@ const Login = () => {
           </div>
           <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>Login</button>
         </form>
-        <p style={{ textAlign: 'center', marginTop: '1.5rem', color: 'var(--text-muted)' }}>
+        <p style={{ textAlign: 'center', marginTop: '1.5rem', color: '#64748b' }}>
           Don't have an account? <Link to="/register" style={{ color: 'var(--primary)' }}>Sign Up</Link>
         </p>
       </div>

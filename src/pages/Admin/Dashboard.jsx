@@ -95,13 +95,13 @@ const Dashboard = () => {
     <div className="container" style={{ padding: '3rem 1.5rem', display: 'flex', gap: '2rem' }}>
 
       <div className="card" style={{ width: '250px', height: 'fit-content' }}>
-        <h3 style={{ marginBottom: '1.5rem', color: 'var(--primary)' }}>Admin Panel</h3>
+        <h3 style={{ marginBottom: '1.5rem', color: '#6366F1' }}>Admin Panel</h3>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
           {['projects', 'services', 'contacts', 'ideas'].map(tab => (
             <button 
               key={tab} 
               onClick={() => setActiveTab(tab)}
-              style={{ padding: '0.75rem 1rem', textAlign: 'left', background: activeTab === tab ? 'var(--primary)' : 'transparent', color: activeTab === tab ? 'white' : 'var(--text)', border: 'none', borderRadius: '0.5rem', cursor: 'pointer', textTransform: 'capitalize' }}
+              style={{ padding: '0.75rem 1rem', textAlign: 'left', background: activeTab === tab ? '#6366F1' : 'transparent', color: activeTab === tab ? 'white' : '#1e293b', border: 'none', borderRadius: '0.5rem', cursor: 'pointer', textTransform: 'capitalize' }}
             >
               Manage {tab}
             </button>
@@ -125,7 +125,7 @@ const Dashboard = () => {
                 <div className="form-group">
                   <label className="form-label">Upload Image</label>
                   <input type="file" onChange={e => handleImageUpload(e, setNewProject)} className="form-control" />
-                  {newProject.image && <small style={{ color: 'var(--primary)' }}>Image uploaded: {newProject.image}</small>}
+                  {newProject.image && <small style={{ color: '#6366F1' }}>Image uploaded: {newProject.image}</small>}
                 </div>
                 <button className="btn btn-primary btn-sm">Add Project</button>
               </form>
@@ -140,7 +140,7 @@ const Dashboard = () => {
                          <div>
                            <label className="form-label" style={{ fontSize: '0.8rem' }}>Update Image</label>
                            <input type="file" onChange={e => handleImageUpload(e, setEditingProject)} className="form-control" />
-                           {/* {editingProject.image && <small style={{ color: 'var(--primary)' }}>Current: {editingProject.image}</small>} */}
+                           {/* {editingProject.image && <small style={{ color: '#6366F1' }}>Current: {editingProject.image}</small>} */}
                          </div>
                          <div style={{ display: 'flex', gap: '0.5rem' }}>
                            <button type="submit" className="btn btn-primary btn-sm">Save</button>
@@ -151,8 +151,8 @@ const Dashboard = () => {
                        <>
                          <div><strong>{p.title}</strong><br/><small>{p.description}</small></div>
                          <div className='actionbutton' style={{ display: 'flex', gap: '0.5rem',height:"8vh" }}>
-                           <button className="btn btn-sm" style={{ backgroundColor: 'var(--primary)', color: 'white' }} onClick={() => setEditingProject({...p, techStack: p.techStack.join(', ')})}>Edit</button>
-                           <button className="btn btn-sm" style={{ backgroundColor: 'var(--error)', color: 'white' }} onClick={() => handleDelete(p._id, 'projects')}>Delete</button>
+                           <button className="btn btn-sm" style={{ backgroundColor: '#6366F1', color: 'white' }} onClick={() => setEditingProject({...p, techStack: p.techStack.join(', ')})}>Edit</button>
+                           <button className="btn btn-sm" style={{ backgroundColor: '#ef4444', color: 'white' }} onClick={() => handleDelete(p._id, 'projects')}>Delete</button>
                          </div>
                        </>
                      )}
@@ -187,8 +187,8 @@ const Dashboard = () => {
                        <>
                          <div><strong>{s.name}</strong><br/><small>{s.description}</small></div>
                          <div style={{ display: 'flex', gap: '0.5rem' ,height:"8vh" }}>
-                           <button className="btn btn-sm" style={{ backgroundColor: 'var(--primary)', color: 'white' }} onClick={() => setEditingService(s)}>Edit</button>
-                           <button className="btn btn-sm" style={{ backgroundColor: 'var(--error)', color: 'white' }} onClick={() => handleDelete(s._id, 'services')}>Delete</button>
+                           <button className="btn btn-sm" style={{ backgroundColor: '#6366F1', color: 'white' }} onClick={() => setEditingService(s)}>Edit</button>
+                           <button className="btn btn-sm" style={{ backgroundColor: '#ef4444', color: 'white' }} onClick={() => handleDelete(s._id, 'services')}>Delete</button>
                          </div>
                        </>
                      )}
@@ -204,8 +204,8 @@ const Dashboard = () => {
               {contacts.map(c => (
                  <div key={c._id} style={{ padding: '1rem', border: '1px solid var(--border)', borderRadius: '0.5rem' }}>
                    <strong>{c.name} ({c.email})</strong>
-                   <p style={{ marginTop: '0.5rem', color: 'var(--text-muted)' }}>{c.message}</p>
-                   <small style={{ color: 'var(--primary)' }}>{new Date(c.createdAt).toLocaleDateString()}</small>
+                   <p style={{ marginTop: '0.5rem', color: '#64748b' }}>{c.message}</p>
+                   <small style={{ color: '#6366F1' }}>{new Date(c.createdAt).toLocaleDateString()}</small>
                  </div>
               ))}
               {contacts.length === 0 && <p>No contacts found.</p>}
@@ -218,11 +218,11 @@ const Dashboard = () => {
               {ideas.map(i => (
                  <div key={i._id} style={{ display: 'flex', justifyContent: 'space-between', padding: '1rem', border: '1px solid var(--border)', borderRadius: '0.5rem' }}>
                    <div>
-                     <strong>{i.title}</strong> <span style={{ fontSize: '0.8rem', padding: '0.2rem 0.5rem', background: 'var(--surface-light)', borderRadius: '1rem' }}>{i.status}</span>
-                     <p style={{ marginTop: '0.5rem', color: 'var(--text-muted)' }}>{i.description}</p>
+                     <strong>{i.title}</strong> <span style={{ fontSize: '0.8rem', padding: '0.2rem 0.5rem', background: '#f1f5f9', borderRadius: '1rem' }}>{i.status}</span>
+                     <p style={{ marginTop: '0.5rem', color: '#64748b' }}>{i.description}</p>
                      <small>By: {i.userId?.name}</small>
                    </div>
-                   <button className="btn btn-sm" style={{ backgroundColor: 'var(--error)', color: 'white', height: 'fit-content' }} onClick={() => handleDelete(i._id, 'ideas')}>Delete</button>
+                   <button className="btn btn-sm" style={{ backgroundColor: '#ef4444', color: 'white', height: 'fit-content' }} onClick={() => handleDelete(i._id, 'ideas')}>Delete</button>
                  </div>
               ))}
               {ideas.length === 0 && <p>No ideas found.</p>}

@@ -20,11 +20,11 @@ const Contact = () => {
   return (
     <div className="container" style={{ padding: '4rem 1.5rem' }}>
       <h1 style={{ fontSize: '3rem', textAlign: 'center', marginBottom: '1rem' }}>Contact Us</h1>
-      <p style={{ textAlign: 'center', color: 'var(--text-muted)', marginBottom: '3rem' }}>We love to hear from you. Send us a message.</p>
+      <p style={{ textAlign: 'center', color: '#64748b', marginBottom: '3rem' }}>We love to hear from you. Send us a message.</p>
       
       <div style={{ maxWidth: '600px', margin: '0 auto' }} className="card">
         {status.message && (
-          <div style={{ padding: '1rem', borderRadius: '0.5rem', marginBottom: '1.5rem', backgroundColor: 'var(--surface-light)', color: status.type === 'error' ? 'var(--error)' : 'var(--success)', border: '1px solid var(--border)' }}>
+          <div style={{ padding: '1rem', borderRadius: '0.5rem', marginBottom: '1.5rem', backgroundColor: '#f1f5f9', color: status.type === 'error' ? '#ef4444' : '#22c55e', border: '1px solid var(--border)' }}>
             {status.message}
           </div>
         )}

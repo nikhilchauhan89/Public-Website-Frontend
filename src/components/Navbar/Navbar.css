@@ -13,14 +13,14 @@
   height: 4.5rem;
 }
 
-.nav-brand {
+.navlogo {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--text);
   letter-spacing: -0.025em;
 }
 
-.brand-accent {
+.logoContent {
   color: var(--primary);
 }
 
