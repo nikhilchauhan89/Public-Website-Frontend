@@ -6,17 +6,17 @@ const About = () => {
       <h1 style={{ fontSize: '3rem', textAlign: 'center', marginBottom: '2rem' }}>About Us</h1>
       <div style={{ maxWidth: '800px', margin: '0 auto' }}>
         <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: 1.8 }}>
-          ExCompany is a leading digital agency specializing in building exceptional web applications and software solutions. Founded by a team of passionate engineers and designers, we strive to bridge the gap between complex technology and user-friendly design.
+         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet eros blandit, volutpat nulla at, vulputate elit.Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.
         </p>
         <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: 1.8 }}>
-          Our mission is to empower businesses to thrive in the digital age by delivering innovative, scalable, and secure software. We believe in transparency, continuous learning, and pushing the boundaries of what is possible on the web.
+       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.Pellentesque in ipsum id orci porta dapibus. Nulla quis lorem ut libero malesuada feugiat.
         </p>
         <div className="card" style={{ marginTop: '3rem', backgroundColor: 'var(--surface-light)' }}>
           <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Our Values</h3>
           <ul style={{ listStyleType: 'disc', paddingLeft: '1.5rem', color: 'var(--text-muted)', fontSize: '1.1rem', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-            <li><strong style={{ color: 'var(--text)' }}>Quality First:</strong> We never compromise on the quality of our code or design.</li>
-            <li><strong style={{ color: 'var(--text)' }}>User-Centric:</strong> The end-user is always at the forefront of our decisions.</li>
-            <li><strong style={{ color: 'var(--text)' }}>Innovation:</strong> We continuously explore new technologies to deliver the best solutions.</li>
+            <li><strong style={{ color: 'var(--text)' }}>Our Mission:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor lectus nibh.</li>
+            <li><strong style={{ color: 'var(--text)' }}>Project Title:</strong> Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.</li>
+            <li><strong style={{ color: 'var(--text)' }}>Our Vision:</strong> Donec sollicitudin molestie malesuada. Curabitur arcu erat, accumsan id imperdiet et.</li>
           </ul>
         </div>
       </div>
