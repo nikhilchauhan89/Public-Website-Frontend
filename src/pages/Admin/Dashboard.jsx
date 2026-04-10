@@ -58,6 +58,24 @@ const Dashboard = () => {
     fetchData();
   };
 
+  const handleImageUpload = async (e, setFunction) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const formData = new FormData();
+    formData.append('image', file);
+
+    try {
+      const config = { headers: { 'Content-Type': 'multipart/form-data' } };
+      const { data } = await api.post('/upload', formData, config);
+      const baseUrl = api.defaults.baseURL.replace('/api', '');
+      setFunction((prev) => ({ ...prev, image: baseUrl + data.image }));
+    } catch (error) {
+      console.error(error);
+      alert('Image upload failed');
+    }
+  };
+
   const handleUpdateProject = async (e) => {
     e.preventDefault();
     const payload = { ...editingProject, techStack: typeof editingProject.techStack === 'string' ? editingProject.techStack.split(',').map(s => s.trim()) : editingProject.techStack };
@@ -75,7 +93,7 @@ const Dashboard = () => {
 
   return (
     <div className="container" style={{ padding: '3rem 1.5rem', display: 'flex', gap: '2rem' }}>
-      {}
+
       <div className="card" style={{ width: '250px', height: 'fit-content' }}>
         <h3 style={{ marginBottom: '1.5rem', color: 'var(--primary)' }}>Admin Panel</h3>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
@@ -91,12 +109,12 @@ const Dashboard = () => {
         </div>
       </div>
 
-      {}
+
       <div style={{ flex: 1 }}>
         <div className="card">
           <h2 style={{ textTransform: 'capitalize', marginBottom: '1.5rem' }}>Manage {activeTab}</h2>
 
-          {}
+
           {activeTab === 'projects' && (
             <div>
               <form onSubmit={handleCreateProject} style={{ marginBottom: '2rem', padding: '1.5rem', border: '1px solid var(--border)', borderRadius: '0.5rem' }}>
@@ -104,7 +122,11 @@ const Dashboard = () => {
                 <div className="form-group"><input type="text" placeholder="Title" className="form-control" value={newProject.title} onChange={e => setNewProject({...newProject, title: e.target.value})} required /></div>
                 <div className="form-group"><input type="text" placeholder="Description" className="form-control" value={newProject.description} onChange={e => setNewProject({...newProject, description: e.target.value})} required /></div>
                 <div className="form-group"><input type="text" placeholder="Tech Stack (comma separated)" className="form-control" value={newProject.techStack} onChange={e => setNewProject({...newProject, techStack: e.target.value})} /></div>
-                <div className="form-group"><input type="text" placeholder="Image URL" className="form-control" value={newProject.image} onChange={e => setNewProject({...newProject, image: e.target.value})} /></div>
+                <div className="form-group">
+                  <label className="form-label">Upload Image</label>
+                  <input type="file" onChange={e => handleImageUpload(e, setNewProject)} className="form-control" />
+                  {newProject.image && <small style={{ color: 'var(--primary)' }}>Image uploaded: {newProject.image}</small>}
+                </div>
                 <button className="btn btn-primary btn-sm">Add Project</button>
               </form>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -115,7 +137,11 @@ const Dashboard = () => {
                          <input type="text" className="form-control" value={editingProject.title} onChange={e => setEditingProject({...editingProject, title: e.target.value})} required />
                          <input type="text" className="form-control" value={editingProject.description} onChange={e => setEditingProject({...editingProject, description: e.target.value})} required />
                          <input type="text" className="form-control" value={editingProject.techStack} onChange={e => setEditingProject({...editingProject, techStack: e.target.value})} />
-                         <input type="text" className="form-control" value={editingProject.image} onChange={e => setEditingProject({...editingProject, image: e.target.value})} />
+                         <div>
+                           <label className="form-label" style={{ fontSize: '0.8rem' }}>Update Image</label>
+                           <input type="file" onChange={e => handleImageUpload(e, setEditingProject)} className="form-control" />
+                           {editingProject.image && <small style={{ color: 'var(--primary)' }}>Current: {editingProject.image}</small>}
+                         </div>
                          <div style={{ display: 'flex', gap: '0.5rem' }}>
                            <button type="submit" className="btn btn-primary btn-sm">Save</button>
                            <button type="button" className="btn btn-sm" onClick={() => setEditingProject(null)}>Cancel</button>
@@ -136,7 +162,7 @@ const Dashboard = () => {
             </div>
           )}
 
-          {}
+
           {activeTab === 'services' && (
             <div>
               <form onSubmit={handleCreateService} style={{ marginBottom: '2rem', padding: '1.5rem', border: '1px solid var(--border)', borderRadius: '0.5rem' }}>
@@ -172,7 +198,7 @@ const Dashboard = () => {
             </div>
           )}
 
-          {}
+
           {activeTab === 'contacts' && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               {contacts.map(c => (
@@ -186,7 +212,7 @@ const Dashboard = () => {
             </div>
           )}
 
-          {}
+
           {activeTab === 'ideas' && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               {ideas.map(i => (
