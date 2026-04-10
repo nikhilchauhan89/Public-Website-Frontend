@@ -140,7 +140,7 @@ const Dashboard = () => {
                          <div>
                            <label className="form-label" style={{ fontSize: '0.8rem' }}>Update Image</label>
                            <input type="file" onChange={e => handleImageUpload(e, setEditingProject)} className="form-control" />
-                           {editingProject.image && <small style={{ color: 'var(--primary)' }}>Current: {editingProject.image}</small>}
+                           {/* {editingProject.image && <small style={{ color: 'var(--primary)' }}>Current: {editingProject.image}</small>} */}
                          </div>
                          <div style={{ display: 'flex', gap: '0.5rem' }}>
                            <button type="submit" className="btn btn-primary btn-sm">Save</button>
