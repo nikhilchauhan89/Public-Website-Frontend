@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --primary: #4F46E5;
-  --primary-dark: #3730A3;
+  --primary: #6366F1;
+  --primary-dark: #4F46E5;
   --secondary: #10B981;
-  --background: #0F172A;
-  --surface: #1E293B;
-  --surface-light: #334155;
-  --text: #F8FAFC;
-  --text-muted: #94A3B8;
-  --border: #334155;
+  --background: #F8FAFC;
+  --surface: #FFFFFF;
+  --surface-light: #F1F5F9;
+  --text: #1E293B;
+  --text-muted: #64748B;
+  --border: #E2E8F0;
   --error: #EF4444;
   --success: #22C55E;
 }
@@ -74,7 +74,8 @@ input, textarea, button, select {
 
 .btn-secondary {
   background-color: var(--surface-light);
-  color: white;
+  border: 1px solid var(--border);
+  color: var(--text);
 }
 
 .btn-secondary:hover {

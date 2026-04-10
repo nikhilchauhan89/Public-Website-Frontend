@@ -11,7 +11,7 @@ const About = () => {
         <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: 1.8 }}>
        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.Pellentesque in ipsum id orci porta dapibus. Nulla quis lorem ut libero malesuada feugiat.
         </p>
-        <div className="card" style={{ marginTop: '3rem', backgroundColor: 'var(--surface-light)' }}>
+        <div className="card" style={{ marginTop: '3rem' }}>
           <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Our Values</h3>
           <ul style={{ listStyleType: 'disc', paddingLeft: '1.5rem', color: 'var(--text-muted)', fontSize: '1.1rem', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
             <li><strong style={{ color: 'var(--text)' }}>Our Mission:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor lectus nibh.</li>

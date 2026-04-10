@@ -150,7 +150,7 @@ const Dashboard = () => {
                      ) : (
                        <>
                          <div><strong>{p.title}</strong><br/><small>{p.description}</small></div>
-                         <div style={{ display: 'flex', gap: '0.5rem' }}>
+                         <div className='actionbutton' style={{ display: 'flex', gap: '0.5rem',height:"8vh" }}>
                            <button className="btn btn-sm" style={{ backgroundColor: 'var(--primary)', color: 'white' }} onClick={() => setEditingProject({...p, techStack: p.techStack.join(', ')})}>Edit</button>
                            <button className="btn btn-sm" style={{ backgroundColor: 'var(--error)', color: 'white' }} onClick={() => handleDelete(p._id, 'projects')}>Delete</button>
                          </div>
@@ -186,7 +186,7 @@ const Dashboard = () => {
                      ) : (
                        <>
                          <div><strong>{s.name}</strong><br/><small>{s.description}</small></div>
-                         <div style={{ display: 'flex', gap: '0.5rem' }}>
+                         <div style={{ display: 'flex', gap: '0.5rem' ,height:"8vh" }}>
                            <button className="btn btn-sm" style={{ backgroundColor: 'var(--primary)', color: 'white' }} onClick={() => setEditingService(s)}>Edit</button>
                            <button className="btn btn-sm" style={{ backgroundColor: 'var(--error)', color: 'white' }} onClick={() => handleDelete(s._id, 'services')}>Delete</button>
                          </div>
