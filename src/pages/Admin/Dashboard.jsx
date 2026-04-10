@@ -13,6 +13,8 @@ const Dashboard = () => {
   
   const [newProject, setNewProject] = useState({ title: '', description: '', techStack: '', image: '' });
   const [newService, setNewService] = useState({ name: '', description: '' });
+  const [editingProject, setEditingProject] = useState(null);
+  const [editingService, setEditingService] = useState(null);
 
   const fetchData = async () => {
     if (activeTab === 'projects') {
@@ -56,6 +58,21 @@ const Dashboard = () => {
     fetchData();
   };
 
+  const handleUpdateProject = async (e) => {
+    e.preventDefault();
+    const payload = { ...editingProject, techStack: typeof editingProject.techStack === 'string' ? editingProject.techStack.split(',').map(s => s.trim()) : editingProject.techStack };
+    await api.put(`/projects/${editingProject._id}`, payload);
+    setEditingProject(null);
+    fetchData();
+  };
+
+  const handleUpdateService = async (e) => {
+    e.preventDefault();
+    await api.put(`/services/${editingService._id}`, editingService);
+    setEditingService(null);
+    fetchData();
+  };
+
   return (
     <div className="container" style={{ padding: '3rem 1.5rem', display: 'flex', gap: '2rem' }}>
       {}
@@ -93,8 +110,26 @@ const Dashboard = () => {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 {projects.map(p => (
                    <div key={p._id} style={{ display: 'flex', justifyContent: 'space-between', padding: '1rem', border: '1px solid var(--border)', borderRadius: '0.5rem' }}>
-                     <div><strong>{p.title}</strong><br/><small>{p.description}</small></div>
-                     <button className="btn btn-sm" style={{ backgroundColor: 'var(--error)', color: 'white' }} onClick={() => handleDelete(p._id, 'projects')}>Delete</button>
+                     {editingProject && editingProject._id === p._id ? (
+                       <form onSubmit={handleUpdateProject} style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                         <input type="text" className="form-control" value={editingProject.title} onChange={e => setEditingProject({...editingProject, title: e.target.value})} required />
+                         <input type="text" className="form-control" value={editingProject.description} onChange={e => setEditingProject({...editingProject, description: e.target.value})} required />
+                         <input type="text" className="form-control" value={editingProject.techStack} onChange={e => setEditingProject({...editingProject, techStack: e.target.value})} />
+                         <input type="text" className="form-control" value={editingProject.image} onChange={e => setEditingProject({...editingProject, image: e.target.value})} />
+                         <div style={{ display: 'flex', gap: '0.5rem' }}>
+                           <button type="submit" className="btn btn-primary btn-sm">Save</button>
+                           <button type="button" className="btn btn-sm" onClick={() => setEditingProject(null)}>Cancel</button>
+                         </div>
+                       </form>
+                     ) : (
+                       <>
+                         <div><strong>{p.title}</strong><br/><small>{p.description}</small></div>
+                         <div style={{ display: 'flex', gap: '0.5rem' }}>
+                           <button className="btn btn-sm" style={{ backgroundColor: 'var(--primary)', color: 'white' }} onClick={() => setEditingProject({...p, techStack: p.techStack.join(', ')})}>Edit</button>
+                           <button className="btn btn-sm" style={{ backgroundColor: 'var(--error)', color: 'white' }} onClick={() => handleDelete(p._id, 'projects')}>Delete</button>
+                         </div>
+                       </>
+                     )}
                    </div>
                 ))}
               </div>
@@ -113,8 +148,24 @@ const Dashboard = () => {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 {services.map(s => (
                    <div key={s._id} style={{ display: 'flex', justifyContent: 'space-between', padding: '1rem', border: '1px solid var(--border)', borderRadius: '0.5rem' }}>
-                     <div><strong>{s.name}</strong><br/><small>{s.description}</small></div>
-                     <button className="btn btn-sm" style={{ backgroundColor: 'var(--error)', color: 'white' }} onClick={() => handleDelete(s._id, 'services')}>Delete</button>
+                     {editingService && editingService._id === s._id ? (
+                       <form onSubmit={handleUpdateService} style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                         <input type="text" className="form-control" value={editingService.name} onChange={e => setEditingService({...editingService, name: e.target.value})} required />
+                         <input type="text" className="form-control" value={editingService.description} onChange={e => setEditingService({...editingService, description: e.target.value})} required />
+                         <div style={{ display: 'flex', gap: '0.5rem' }}>
+                           <button type="submit" className="btn btn-primary btn-sm">Save</button>
+                           <button type="button" className="btn btn-sm" onClick={() => setEditingService(null)}>Cancel</button>
+                         </div>
+                       </form>
+                     ) : (
+                       <>
+                         <div><strong>{s.name}</strong><br/><small>{s.description}</small></div>
+                         <div style={{ display: 'flex', gap: '0.5rem' }}>
+                           <button className="btn btn-sm" style={{ backgroundColor: 'var(--primary)', color: 'white' }} onClick={() => setEditingService(s)}>Edit</button>
+                           <button className="btn btn-sm" style={{ backgroundColor: 'var(--error)', color: 'white' }} onClick={() => handleDelete(s._id, 'services')}>Delete</button>
+                         </div>
+                       </>
+                     )}
                    </div>
                 ))}
               </div>
