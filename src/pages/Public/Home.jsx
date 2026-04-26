@@ -12,7 +12,7 @@ const Home = () => {
             Building the <span style={{ color: '#6366F1' }}>Digital Future</span>
           </h1>
           <p style={{ fontSize: '1.25rem', color: '#64748b', maxWidth: '600px', margin: '0 auto 2.5rem' }}>
-           Donec sollicitudin molestie malesuada. Curabitur arcu erat, accumsan id imperdiet et.
+           Donec sollicitudin molestie malesuada. Curabitu arcu erate, accumsan id imperdiet etc.
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
             <Link to="/projects" className="btn btn-primary btn-lg" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.1rem' }}>
