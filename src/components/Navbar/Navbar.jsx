@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { LogOut, User, LayoutDashboard, Menu, X } from 'lucide-react';
 import './Navbar.css';
@@ -29,11 +29,19 @@ const Navbar = () => {
           <span className="logoContent">Ex</span>Company
         </Link>
 
-        {}
+        { }
         <div className="nav-menu">
-           {navLinks.map((link) => (
-             <Link key={link.name} to={link.path} className="nav-link">{link.name}</Link>
-           ))}
+          {navLinks.map((link) => (
+            <NavLink
+              key={link.name}
+              to={link.path}
+              className={({ isActive }) =>
+                isActive ? 'nav-link active' : 'nav-link'
+              }
+            >
+              {link.name}
+            </NavLink>
+          ))}
         </div>
 
         <div className="nav-actions hidden-mobile">
@@ -60,7 +68,7 @@ const Navbar = () => {
           )}
         </div>
 
-        {}
+        { }
         <button className="mobile-toggle" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <X /> : <Menu />}
         </button>
@@ -69,9 +77,9 @@ const Navbar = () => {
       {isOpen && (
         <div className="mobile-menu">
           {navLinks.map((link) => (
-             <Link key={link.name} to={link.path} className="mobile-link" onClick={() => setIsOpen(false)}>{link.name}</Link>
+            <Link key={link.name} to={link.path} className="mobile-link" onClick={() => setIsOpen(false)}>{link.name}</Link>
           ))}
-          <hr className="mobile-divider"/>
+          <hr className="mobile-divider" />
           {user ? (
             <>
               {user.role === 'admin' ? (
